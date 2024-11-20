@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-		<h1><%= title %></h1>
-		<img src="<%= picture %>" alt="">
-		<p>Несколько слов о цвете: <%= desc %></p>
-  </body>
-</html>
+<% layout('./layout/page.ejs') %>
+
+<div class="container">
+	<h1><%= title %></h1>
+	<img src="<%= picture %>" alt="">
+	<p>Несколько слов о цвете: <%= desc %></p>
+</div>
