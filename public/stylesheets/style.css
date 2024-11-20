@@ -1,8 +1,23 @@
+* {
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
 body {
-  padding: 50px;
+	background-color: #ededed;
+  padding: 20px 10%;
+	margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+img {
+	width: 35%;
+	max-width: 400px;
+	border-radius: 16px;
+	padding: 4px;
+	margin: 0;
+	border: 2px solid white;
 }
