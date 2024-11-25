@@ -27,3 +27,7 @@ img {
 	margin: 0;
 	border: 2px solid white;
 }
+
+.navbar-wrapper {
+	margin-bottom: 20px;
+}
