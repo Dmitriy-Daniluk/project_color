@@ -1,14 +1,25 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1:27017/testMongoose2024');
 
-var schema = mongoose.Schema({ name: String })
+var Color = require('./models/color.js').Color
 
-schema.methods.meow = function(){
-	console.log(this.name + " сказал мяу")
-}
+var color = new Color({
+	title: "Синий",
+	nick: "blue"
+})
 
-const Cat = mongoose.model('Cat', schema);
+color.save();
 
-const kitty = new Cat({ name: 'Пушок' });
 
-kitty.save().then(() => kitty.meow());
+
+// var schema = mongoose.Schema({ name: String })
+
+// schema.methods.recolor = function(){
+// 	console.log(this.name + " разноцветнлся")
+// }
+
+// const Color = mongoose.model('Color', schema);
+
+// const colorize = new Color({ name: 'Цвет' });
+
+// colorize.save().then(() => colorize.recolor());
