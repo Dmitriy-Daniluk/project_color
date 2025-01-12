@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/c2024')
+mongoose.connect('mongodb://localhost/colorProject')
 
 var createError = require('http-errors');
 var express = require('express');

@@ -1,14 +1,24 @@
 var express = require('express');
 var router = express.Router();
+var Color = require('../models/color').Color;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 	res.send('Новый маршрутизатор, для маршрутов, начинающихся с colors');
 });
 
-router.get("/:nick", function(req, res, next) {
-	res.send(req.params.nick);
-});
+/* Страница котов */
+router.get("/:nick", async function(req, res, next) {
+	var colors = await Color.find({nick: req.params.nick});
+	console.log(colors)
+	if(!colors.length) return next(new Error("Нет такого цвета в базе сайта"))
+	var color = colors[0];
+	res.render('color', {
+		title: color.title,
+		picture: color.avatar,
+		desc: color.desc
+	})
+	});
 	
 
 module.exports = router;
