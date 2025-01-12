@@ -2,9 +2,15 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+// router.get('/', function(req, res, next) {
+//   res.render('index', { title: 'Express' });
+// });
+
+/* GET color page. */
+// router.get("/:nick", function(req, res, next) {
+// 	res.send(req.params.nick);
+// });
+
 
 /* Зелённая страница */
 router.get('/red', function(req, res, next) {
