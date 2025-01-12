@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/colorProject')
 
@@ -31,23 +32,28 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use(session({
-// 	secret: "ProjectColor",
-// 	cookie:{maxAge:60*1000},
-// 	proxy: true,
-// 	resave: true,
-// 	saveUninitialized: true
-// }))
+app.use(session({
+	secret: "ProjectColor",
+	cookie:{maxAge:60*1000},
+	proxy: true,
+	resave: true,
+	saveUninitialized: true
+}))
 
 var MongoStore = require('connect-mongo');
 app.use(session({
-	secret: "ThreeCats",
+	secret: "colorProjectCounterViews",
 	cookie:{maxAge:60*1000},
 	proxy: true,
 	resave: true,
 	saveUninitialized: true,
 	store: MongoStore.create({mongoUrl: 'mongodb://localhost/colorProject'})
 }))
+
+app.use(function(req,res,next){
+	req.session.counter = req.session.counter + 1 || 1
+	next()
+})
 
 
 app.use('/', indexRouter);
