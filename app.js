@@ -32,7 +32,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-	secret: "ThreeCats",
+	secret: "ProjectColor",
 	cookie:{maxAge:60*1000},
 	proxy: true,
 	resave: true,
